@@ -25,7 +25,7 @@
     // url to app, enters "step 1" as described in
     // packages/accounts-oauth1-helper/oauth1_server.js
     var url = '/_oauth/linkedin/?requestTokenAndRedirect=' + 
-      encodeURIComponent(callbackUrl) + '&state=' + state;
+      encodeURIComponent(callbackUrl) + encodeURIComponent('&state=' + state);
 
     Accounts.oauth.initiateLogin(state, url, callback);
   };
