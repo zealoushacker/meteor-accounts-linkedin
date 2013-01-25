@@ -20,7 +20,7 @@
 
     // url back to app, enters "step 2" as described in
     // packages/accounts-oauth1-helper/oauth1_server.js
-    var callbackUrl = Meteor.absoluteUrl('_oauth/linkedin?close&state=' + state);
+    var callbackUrl = Meteor.absoluteUrl('_oauth/linkedin?close=true&state=' + state, { replaceLocalhost: true });
 
     // url to app, enters "step 1" as described in
     // packages/accounts-oauth1-helper/oauth1_server.js
