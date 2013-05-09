@@ -17,12 +17,13 @@ Meteor.loginWithLinkedin = function (options, callback) {
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginUrl =
-        'https://api.linkedin.com/uas/oauth2/authorization' +
+        'https://www.linkedin.com/uas/oauth2/authorization' +
         '?response_type=code' +
         '&client_id=' + config.clientId +
         '&scope=' + flatScope +
-        '&redirect_uri=' + Meteor.absoluteUrl('_oauth/linkedin?close') +
+        '&redirect_uri=' + encodeURIComponent(Meteor.absoluteUrl('_oauth/linkedin?close')) +
         '&state=' + state;
 
-  Accounts.oauth.initiateLogin(state, loginUrl, callback);
+  Accounts.oauth.initiateLogin(state, loginUrl, callback, {width: 500, height: 450});
+
 };
